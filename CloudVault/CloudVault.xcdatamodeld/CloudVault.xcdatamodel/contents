@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AWSProfile" representedClassName="AWSProfile" parentEntity="CloudProfile" syncable="YES" codeGenerationType="class">
+        <attribute name="accessKey" attributeType="String"/>
+        <attribute name="accountId" optional="YES" attributeType="String"/>
+        <attribute name="arn" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="profileDescription" optional="YES" attributeType="String"/>
+        <attribute name="secretKey" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CloudProfile" representedClassName="CloudProfile" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastActive" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="AWSProfile" positionX="-54" positionY="9" width="128" height="134"/>
+        <element name="CloudProfile" positionX="-63" positionY="-18" width="128" height="89"/>
+    </elements>
 </model>
