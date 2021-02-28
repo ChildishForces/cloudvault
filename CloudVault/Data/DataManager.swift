@@ -13,8 +13,10 @@ Singleton class for exposing repos to application through shared instance
 class DataManager: NSObject {
   static let shared = DataManager()
   let profiles: ProfileRepo
+  let tags: TagRepo
 
   override init() {
     profiles = ProfileRepo()
+    tags = TagRepo()
   }
 }

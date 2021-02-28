@@ -59,8 +59,8 @@ class PopoverViewController: NSViewController {
 
   @IBAction func testProfile(_ sender: Any) {
     guard profileNameInput?.stringValue.count ?? 0 > 0 else { return }
-    guard accessKeyRegex.matches(accessKeyInput!.stringValue) else { return }
-    guard secretKeyRegex.matches(secretKeyInput!.stringValue) else { return }
+    guard accessKeyRegex.hasMatch(accessKeyInput!.stringValue) else { return }
+    guard secretKeyRegex.hasMatch(secretKeyInput!.stringValue) else { return }
 
     // Reflect start of testing in UI
     indicator?.status = .waiting
@@ -156,8 +156,8 @@ extension PopoverViewController: NSTextFieldDelegate {
       return
     }
 
-    guard accessKeyRegex.matches(accessKeyInput!.stringValue)
-      && secretKeyRegex.matches(secretKeyInput!.stringValue) else {
+    guard accessKeyRegex.hasMatch(accessKeyInput!.stringValue)
+      && secretKeyRegex.hasMatch(secretKeyInput!.stringValue) else {
       statusMessage?.stringValue = getStatusMessage(.incorrect)
       indicator?.status = .waiting
       stsResponse = nil

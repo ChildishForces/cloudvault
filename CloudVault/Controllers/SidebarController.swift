@@ -8,6 +8,14 @@
 import Foundation
 import AppKit
 import ReSwift
+import DynamicColor
+
+enum FactoryError: Error {
+  case couldNotSplitColors
+  case couldNotCreateCell
+}
+
+typealias TagCell = TagTableCell
 
 class SidebarController: NSViewController, StoreSubscriber {
   @objc func navUpdate(_ notification: Notification) {
@@ -66,7 +74,17 @@ class SidebarController: NSViewController, StoreSubscriber {
           icon: NSImage(systemSymbolName: "gearshape.fill", accessibilityDescription: nil)!
         )
       ]),
-      MenuSegment(name: "Profiles", items: profileItems)
+      MenuSegment(name: "Profiles", items: profileItems),
+      MenuSegment(name: "Tags", items: [
+        TagMenuItem("Childish Forces", id: "1", color: colorRotator(0)),
+        TagMenuItem("Test Group", id: "2", color: colorRotator(1)),
+        TagMenuItem("Group", id: "3", color: colorRotator(2)),
+        TagMenuItem("TestyTest", id: "4", color: colorRotator(3)),
+        TagMenuItem("Group", id: "5", color: colorRotator(4)),
+        TagMenuItem("TestyTest", id: "6", color: colorRotator(5)),
+        TagMenuItem("TestyTest", id: "7", color: colorRotator(6)),
+        TagMenuItem("TestyTest", id: "8", color: colorRotator(7))
+      ])
     ]
   }
 
@@ -117,6 +135,72 @@ class SidebarController: NSViewController, StoreSubscriber {
     for segment in self.items {
       self.outlineView.expandItem(segment)
     }
+  }
+
+  // MARK: - View Factory Methods
+
+  private func generateTagView(_ menuItem: TagMenuItem, _ outlineView: NSOutlineView) throws -> TagTableCell {
+    guard let view = outlineView.makeView(
+      withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TagCell"),
+      owner: self
+    ) as? TagTableCell else { throw FactoryError.couldNotCreateCell }
+
+    if let textField = view.textField {
+      textField.stringValue = menuItem.name
+    }
+
+    if menuItem.color != nil, let indicatorView = view.customView {
+      indicatorView.color = DynamicColor(hexString: menuItem.color!)
+    }
+
+    return view
+  }
+
+  private func generateProfileView(_ menuItem: ProfileMenuItem, _ outlineView: NSOutlineView) throws -> NSTableCellView {
+    guard let view = outlineView.makeView(
+      withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"),
+      owner: self
+    ) as? NSTableCellView else { throw FactoryError.couldNotCreateCell }
+
+    if let textField = view.textField {
+      textField.stringValue = menuItem.name
+    }
+
+    if let imageView = view.imageView {
+      if menuItem.icon != nil { imageView.image = menuItem.icon } else { imageView.isHidden = true }
+    }
+
+    return view
+  }
+
+  private func generateNavigationView(_ menuItem: NavigationMenuItem, _ outlineView: NSOutlineView) throws -> NSTableCellView {
+    guard let view = outlineView.makeView(
+      withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"),
+      owner: self
+    ) as? NSTableCellView else { throw FactoryError.couldNotCreateCell }
+
+    if let textField = view.textField {
+      textField.stringValue = menuItem.name
+    }
+
+    if let imageView = view.imageView {
+      if menuItem.icon != nil { imageView.image = menuItem.icon } else { imageView.isHidden = true }
+    }
+
+    return view
+  }
+
+  private func generateMenuSegmentView(_ menuItem: MenuSegment, _ outlineView: NSOutlineView) throws -> NSTableCellView {
+    guard let view = outlineView.makeView(
+      withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"),
+      owner: self
+    ) as? NSTableCellView else { throw FactoryError.couldNotCreateCell }
+
+    if let textField = view.textField {
+      textField.stringValue = menuItem.name
+    }
+
+    return view
   }
 
   // MARK: - Profile State
@@ -181,48 +265,14 @@ extension SidebarController: NSOutlineViewDelegate {
   }
 
   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-    var view: NSTableCellView?
-
-    if let segment = item as? MenuSegment {
-      view = outlineView.makeView(
-        withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"),
-        owner: self
-      ) as? NSTableCellView
-      if let textField = view?.textField {
-        textField.stringValue = segment.name
-      }
-    } else if let menuItem = item as? ProfileMenuItem {
-      view = outlineView.makeView(
-        withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"),
-        owner: self
-      ) as? NSTableCellView
-
-      if let imageView = view?.imageView {
-        if menuItem.icon != nil { imageView.image = menuItem.icon } else { imageView.isHidden = true }
-      }
-      if let textField = view?.textField {
-        textField.stringValue = menuItem.name
-      }
-    } else if let menuItem = item as? NavigationMenuItem {
-      view = outlineView.makeView(
-        withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"),
-        owner: self
-      ) as? NSTableCellView
-
-      if let imageView = view?.imageView {
-        if menuItem.icon != nil {
-          imageView.image = menuItem.icon
-        } else { imageView.isHidden = true }
-      }
-      if let textField = view?.textField {
-        textField.stringValue = menuItem.name
-        //        textField.sizeToFit()
-      }
-    } else {
+    if let segment = item as? MenuSegment { return try? generateMenuSegmentView(segment, outlineView) } else
+    if let menuItem = item as? ProfileMenuItem { return try? generateProfileView(menuItem, outlineView) } else
+    if let menuItem = item as? TagMenuItem { return try? generateTagView(menuItem, outlineView) } else
+    if let menuItem = item as? NavigationMenuItem { return try? generateNavigationView(menuItem, outlineView) } else {
       print("MenuController: Unknown type item=\(item)")
     }
 
-    return view
+    return nil
   }
 
   func outlineViewSelectionDidChange(_ notification: Notification) {

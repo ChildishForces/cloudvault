@@ -14,9 +14,17 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="lastActive" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="profiles" inverseEntity="Tag"/>
+    </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="profiles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CloudProfile" inverseName="tags" inverseEntity="CloudProfile"/>
     </entity>
     <elements>
-        <element name="AWSProfile" positionX="-54" positionY="9" width="128" height="134"/>
-        <element name="CloudProfile" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="AWSProfile" positionX="-153.5263671875" positionY="-85.22865295410156" width="128" height="134"/>
+        <element name="CloudProfile" positionX="-527.828857421875" positionY="-85.8568115234375" width="128" height="104"/>
+        <element name="Tag" positionX="-326.203369140625" positionY="85.485595703125" width="128" height="103"/>
     </elements>
 </model>

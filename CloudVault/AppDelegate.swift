@@ -7,14 +7,17 @@
 
 import Cocoa
 import RxSwift
+import RxCocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
   let mainDisposeBag = DisposeBag.init()
+  let appIsActive = BehaviorRelay<Bool>(value: false)
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Insert code here to initialize your application
     print(self.persistentContainer.persistentStoreCoordinator.persistentStores)
+    appIsActive.asObservable().bind(onNext: { print("App is \($0 ? "" : "in")active") }).disposed(by: mainDisposeBag)
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
@@ -30,6 +33,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func application(_ sender: NSApplication, openFile filename: String) -> Bool {
     print(filename)
     return true
+  }
+
+  // MARK: - Application Becomes Active
+  func applicationWillBecomeActive(_ notification: Notification) {
+    appIsActive.accept(true)
+  }
+
+  func applicationWillResignActive(_ notification: Notification) {
+    appIsActive.accept(false)
   }
 
   // MARK: - Core Data stack

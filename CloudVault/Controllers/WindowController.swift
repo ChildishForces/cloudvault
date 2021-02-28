@@ -14,8 +14,10 @@ import LocalAuthentication
 */
 class WindowController: NSWindowController {
   var popover: NSPopover?
+  var newTagPopover: NSPopover?
   var popoverController: PopoverViewController?
   var sidebarController: SidebarController?
+  var newTagController: NewTagController?
 
   @IBOutlet var sortMenu: NSMenu?
 
@@ -32,6 +34,21 @@ class WindowController: NSWindowController {
 
     popover?.behavior = .semitransient
     popover?.animates = true
+
+
+    guard let newTagController = storyboard.instantiateController(
+      withIdentifier: "newTagController"
+    ) as? NewTagController else {
+      return
+    }
+
+    self.newTagController = newTagController
+    newTagPopover = NSPopover()
+    newTagPopover?.contentViewController = newTagController
+    newTagPopover?.contentSize = newTagController.view.frame.size
+
+    newTagPopover?.behavior = .semitransient
+    newTagPopover?.animates = true
   }
 
   @IBAction func openPopover(_ sender: AnyObject) {
@@ -42,8 +59,20 @@ class WindowController: NSWindowController {
       : popover!.show(relativeTo: sender.bounds, of: sender as! NSView, preferredEdge: .maxX)
   }
 
+  @IBAction func openNewTagPopover(_ sender: AnyObject) {
+    if newTagPopover == nil { return }
+    newTagPopover!.isShown
+      ? closeNewTagPopover(sender)
+      // swiftlint:disable:next force_cast
+      : newTagPopover!.show(relativeTo: sender.bounds, of: sender as! NSView, preferredEdge: .maxY)
+  }
+
   func closePopover(_ sender: AnyObject) {
     popover!.close()
+  }
+
+  func closeNewTagPopover(_ sender: AnyObject) {
+    newTagPopover!.close()
   }
 
   // Sort Menu

@@ -56,3 +56,15 @@ class NavigationMenuItem {
     self.icon = icon
   }
 }
+
+class TagMenuItem {
+  let id: String
+  let name: String
+  let color: String?
+
+  init (_ name: String, id: String, color: String) {
+    self.id = id
+    self.name = name
+    self.color = color
+  }
+}
