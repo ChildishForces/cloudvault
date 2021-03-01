@@ -34,7 +34,6 @@ class WindowController: NSWindowController {
     popover = NSPopover()
     popover?.contentViewController = popoverController
     popover?.contentSize = popoverController.view.frame.size
-
     popover?.behavior = .semitransient
     popover?.animates = true
 
@@ -47,7 +46,6 @@ class WindowController: NSWindowController {
     newTagPopover = NSPopover()
     newTagPopover?.contentViewController = newTagController
     newTagPopover?.contentSize = newTagController.view.frame.size
-
     newTagPopover?.behavior = .semitransient
     newTagPopover?.animates = true
 

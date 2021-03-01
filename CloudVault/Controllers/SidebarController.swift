@@ -32,6 +32,7 @@ class SidebarController: NSViewController, StoreSubscriber {
   // Vars
   var mainWindowController: WindowController?
   var profileItems: [ProfileMenuItem] = []
+  var tagItems: [TagMenuItem] = []
   var lastLocation: String?
   var items: [Any] = []
 
@@ -59,7 +60,17 @@ class SidebarController: NSViewController, StoreSubscriber {
           icon: NSImage(systemSymbolName: "key.fill", accessibilityDescription: nil)!
         )
       }
-      .sorted(by: { (a: ProfileMenuItem, b: ProfileMenuItem) -> Bool in a.name < b.name })
+      .sorted { $0.name < $1.name }
+
+    tagItems = DataManager.shared.tags.items.value
+      .map {
+        TagMenuItem(
+          $0.name!,
+          id: $0.id!.uuidString,
+          color: $0.color!
+        )
+      }
+      .sorted { $0.name < $1.name }
 
     return [
       MenuSegment(name: "Navigation", items: [
@@ -75,16 +86,7 @@ class SidebarController: NSViewController, StoreSubscriber {
         )
       ]),
       MenuSegment(name: "Profiles", items: profileItems),
-      MenuSegment(name: "Tags", items: [
-        TagMenuItem("Childish Forces", id: "1", color: colorRotator(0)),
-        TagMenuItem("Test Group", id: "2", color: colorRotator(1)),
-        TagMenuItem("Group", id: "3", color: colorRotator(2)),
-        TagMenuItem("TestyTest", id: "4", color: colorRotator(3)),
-        TagMenuItem("Group", id: "5", color: colorRotator(4)),
-        TagMenuItem("TestyTest", id: "6", color: colorRotator(5)),
-        TagMenuItem("TestyTest", id: "7", color: colorRotator(6)),
-        TagMenuItem("TestyTest", id: "8", color: colorRotator(7))
-      ])
+      MenuSegment(name: "Tags", items: tagItems)
     ]
   }
 
@@ -103,6 +105,10 @@ class SidebarController: NSViewController, StoreSubscriber {
     guard let delegate = NSApplication.shared.delegate as? AppDelegate else { return }
 
     DataManager.shared.profiles.items.asObservable()
+      .subscribe(onNext: { _ in self.drawNav() })
+      .disposed(by: delegate.mainDisposeBag)
+
+    DataManager.shared.tags.items.asObservable()
       .subscribe(onNext: { _ in self.drawNav() })
       .disposed(by: delegate.mainDisposeBag)
 

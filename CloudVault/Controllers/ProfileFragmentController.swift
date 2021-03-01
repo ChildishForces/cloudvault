@@ -15,7 +15,7 @@ class ProfileFragmentController: NSViewController {
   @IBOutlet var indicatorView: IndicatorView?
   @IBOutlet var profileNameLabel: NSTextField?
   @IBOutlet var accessKeyLabel: NSTextField?
-  @IBOutlet var secretKeyLabel: NSTextField?
+  @IBOutlet var dateAddedLabel: NSTextField?
   @IBOutlet var accountIdLabel: NSTextField?
 
   var profile: AWSProfile? {
@@ -24,9 +24,14 @@ class ProfileFragmentController: NSViewController {
 
   func setProps(_ profile: AWSProfile?) {
     if profile == nil { return }
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd/MM/yyyy' 'HH:mm:ssZZZZZ"
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+
+
     profileNameLabel?.stringValue = profile!.name!
     accessKeyLabel?.stringValue = profile!.accessKey!
-    secretKeyLabel?.stringValue = profile!.secretKey!
+    dateAddedLabel?.stringValue = formatter.string(from: profile!.createdAt!)
     accountIdLabel?.stringValue = profile!.accountId!
   }
 
