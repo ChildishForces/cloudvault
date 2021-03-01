@@ -808,15 +808,27 @@
                     <items>
                         <menuItem title="Date Created (Ascending)" id="NMn-k6-1MJ">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="sortByDateAscending:" target="B8D-0N-5wS" id="fcw-O3-H17"/>
+                            </connections>
                         </menuItem>
                         <menuItem title="Date Created (Descending)" id="eZL-dM-hTC">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="sortByDateDescending:" target="B8D-0N-5wS" id="Tfz-x1-pAR"/>
+                            </connections>
                         </menuItem>
                         <menuItem title="Name (Ascending)" id="YpE-hD-fqx">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="sortByNameAscending:" target="B8D-0N-5wS" id="9Mb-ar-FFS"/>
+                            </connections>
                         </menuItem>
                         <menuItem title="Name (Descending)" id="ZjZ-hq-qGZ">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="sortByNameDescending:" target="B8D-0N-5wS" id="ZIu-Cc-xaB"/>
+                            </connections>
                         </menuItem>
                     </items>
                 </menu>
@@ -1212,17 +1224,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="276" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GkC-v6-yzf">
-                                <rect key="frame" x="12" y="12" width="226" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="tlS-CQ-pYW"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="New Tag Name" bezelStyle="round" id="KBW-xJ-kqa">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="LC7-Z9-ckM" customClass="ColorIndicatorButton" customModule="CloudVault" customModuleProvider="target">
                                 <rect key="frame" x="250" y="18" width="14" height="14"/>
                                 <constraints>
@@ -1237,6 +1238,17 @@
                                     </clickGestureRecognizer>
                                 </gestureRecognizers>
                             </customView>
+                            <textField focusRingType="none" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GkC-v6-yzf">
+                                <rect key="frame" x="12" y="16" width="232" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="tlS-CQ-pYW"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="New Tag Name" id="KBW-xJ-kqa">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="GkC-v6-yzf" firstAttribute="centerY" secondItem="N80-pV-aK6" secondAttribute="centerY" id="19o-M4-Spf"/>

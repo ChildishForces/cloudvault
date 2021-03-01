@@ -13,6 +13,7 @@
 		255BB2BB25E5E8080055862B /* SidebarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255BB2BA25E5E8080055862B /* SidebarController.swift */; };
 		255BB2BD25E5E8490055862B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255BB2BC25E5E8490055862B /* Store.swift */; };
 		255BB2BF25E5EC9A0055862B /* CustomTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255BB2BE25E5EC990055862B /* CustomTableRowView.swift */; };
+		255BB2C225E98A160055862B /* TagRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255BB2C125E98A160055862B /* TagRepo.swift */; };
 		2569928825E2B623002ABB7E /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2569928725E2B623002ABB7E /* Dependencies */; };
 		2569928A25E2BFA3002ABB7E /* ProfileStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2569928925E2BFA3002ABB7E /* ProfileStackView.swift */; };
 		256B8A6925E07D9C007F992C /* NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256B8A6825E07D9C007F992C /* NSRegularExpression.swift */; };
@@ -34,6 +35,12 @@
 		25CD926D25E4608700D7876A /* RepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD926C25E4608700D7876A /* RepoProtocol.swift */; };
 		25CD926F25E460F600D7876A /* CoreDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD926E25E460F600D7876A /* CoreDataRepo.swift */; };
 		25CD927125E4616F00D7876A /* ProfileRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD927025E4616F00D7876A /* ProfileRepo.swift */; };
+		25DE80C625E9BDD8004D5E4E /* TagTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80C525E9BDD8004D5E4E /* TagTableCell.swift */; };
+		25DE80C825E9C635004D5E4E /* TagIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80C725E9C635004D5E4E /* TagIndicatorView.swift */; };
+		25DE80CB25EADAE6004D5E4E /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = 25DE80CA25EADAE6004D5E4E /* DynamicColor */; };
+		25DE80CD25EAE852004D5E4E /* ColorPalettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80CC25EAE852004D5E4E /* ColorPalettes.swift */; };
+		25DE80D125EC05EC004D5E4E /* NewTagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80D025EC05EC004D5E4E /* NewTagController.swift */; };
+		25DE80D325EC2930004D5E4E /* ColorIndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80D225EC2930004D5E4E /* ColorIndicatorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +61,7 @@
 		255BB2BA25E5E8080055862B /* SidebarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarController.swift; sourceTree = "<group>"; };
 		255BB2BC25E5E8490055862B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		255BB2BE25E5EC990055862B /* CustomTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableRowView.swift; sourceTree = "<group>"; };
+		255BB2C125E98A160055862B /* TagRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRepo.swift; sourceTree = "<group>"; };
 		2569928425E2B2C1002ABB7E /* Dependencies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Dependencies; sourceTree = "<group>"; };
 		2569928925E2BFA3002ABB7E /* ProfileStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStackView.swift; sourceTree = "<group>"; };
 		256B8A6825E07D9C007F992C /* NSRegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpression.swift; sourceTree = "<group>"; };
@@ -82,6 +90,11 @@
 		25CD926C25E4608700D7876A /* RepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoProtocol.swift; sourceTree = "<group>"; };
 		25CD926E25E460F600D7876A /* CoreDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepo.swift; sourceTree = "<group>"; };
 		25CD927025E4616F00D7876A /* ProfileRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepo.swift; sourceTree = "<group>"; };
+		25DE80C525E9BDD8004D5E4E /* TagTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableCell.swift; sourceTree = "<group>"; };
+		25DE80C725E9C635004D5E4E /* TagIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagIndicatorView.swift; sourceTree = "<group>"; };
+		25DE80CC25EAE852004D5E4E /* ColorPalettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalettes.swift; sourceTree = "<group>"; };
+		25DE80D025EC05EC004D5E4E /* NewTagController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagController.swift; sourceTree = "<group>"; };
+		25DE80D225EC2930004D5E4E /* ColorIndicatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorIndicatorButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25DE80CB25EADAE6004D5E4E /* DynamicColor in Frameworks */,
 				255BB2B925E5E7910055862B /* ReSwift in Frameworks */,
 				255BB2B425E59F9B0055862B /* KeychainSwift in Frameworks */,
 				2569928825E2B623002ABB7E /* Dependencies in Frameworks */,
@@ -119,6 +133,7 @@
 			children = (
 				25A57DF725E061DF005E3D2B /* AwsUtility.swift */,
 				255BB2B525E5A2170055862B /* KeychainUtility.swift */,
+				25DE80CC25EAE852004D5E4E /* ColorPalettes.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -189,6 +204,7 @@
 				25A57DE825DF0B17005E3D2B /* WindowController.swift */,
 				256B8BF625E1EAF0007F992C /* ProfileFragmentController.swift */,
 				255BB2BA25E5E8080055862B /* SidebarController.swift */,
+				25DE80D025EC05EC004D5E4E /* NewTagController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,9 +222,12 @@
 			children = (
 				25BFD65025BDE63500BA5D7D /* VerticallyAlignedTextFieldCell.swift */,
 				25BFD65525BDF27D00BA5D7D /* IndicatorView.swift */,
+				25DE80D225EC2930004D5E4E /* ColorIndicatorButton.swift */,
 				256B8BFB25E20050007F992C /* FlippedClipView.swift */,
 				2569928925E2BFA3002ABB7E /* ProfileStackView.swift */,
 				255BB2BE25E5EC990055862B /* CustomTableRowView.swift */,
+				25DE80C525E9BDD8004D5E4E /* TagTableCell.swift */,
+				25DE80C725E9C635004D5E4E /* TagIndicatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				25CD927025E4616F00D7876A /* ProfileRepo.swift */,
+				255BB2C125E98A160055862B /* TagRepo.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -254,6 +274,7 @@
 				2569928725E2B623002ABB7E /* Dependencies */,
 				255BB2B325E59F9B0055862B /* KeychainSwift */,
 				255BB2B825E5E7910055862B /* ReSwift */,
+				25DE80CA25EADAE6004D5E4E /* DynamicColor */,
 			);
 			productName = CloudVault;
 			productReference = 25BFD5C225B8951100BA5D7D /* CloudVault.app */;
@@ -288,6 +309,7 @@
 				25A57E1525E068BA005E3D2B /* XCRemoteSwiftPackageReference "soto-core" */,
 				255BB2B225E59F9B0055862B /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				255BB2B725E5E7910055862B /* XCRemoteSwiftPackageReference "ReSwift" */,
+				25DE80C925EADAE6004D5E4E /* XCRemoteSwiftPackageReference "DynamicColor" */,
 			);
 			productRefGroup = 25BFD5C325B8951100BA5D7D /* Products */;
 			projectDirPath = "";
@@ -337,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25CD926A25E4602E00D7876A /* DataManager.swift in Sources */,
+				25DE80D325EC2930004D5E4E /* ColorIndicatorButton.swift in Sources */,
 				25A57DF825E061DF005E3D2B /* AwsUtility.swift in Sources */,
 				25BFD5CB25B8951100BA5D7D /* CloudVault.xcdatamodeld in Sources */,
 				25A57DEF25DF13AD005E3D2B /* NSBezierPath.swift in Sources */,
@@ -345,6 +368,7 @@
 				25A57DE925DF0B17005E3D2B /* WindowController.swift in Sources */,
 				25BFD64825BDDC3800BA5D7D /* PopoverViewController.swift in Sources */,
 				255BB2BF25E5EC9A0055862B /* CustomTableRowView.swift in Sources */,
+				25DE80C625E9BDD8004D5E4E /* TagTableCell.swift in Sources */,
 				256B8BFC25E20050007F992C /* FlippedClipView.swift in Sources */,
 				25BFD65125BDE63500BA5D7D /* VerticallyAlignedTextFieldCell.swift in Sources */,
 				25CD927125E4616F00D7876A /* ProfileRepo.swift in Sources */,
@@ -352,10 +376,14 @@
 				255BB2BB25E5E8080055862B /* SidebarController.swift in Sources */,
 				25BFD65625BDF27D00BA5D7D /* IndicatorView.swift in Sources */,
 				25BFD5C625B8951100BA5D7D /* AppDelegate.swift in Sources */,
+				25DE80CD25EAE852004D5E4E /* ColorPalettes.swift in Sources */,
+				25DE80C825E9C635004D5E4E /* TagIndicatorView.swift in Sources */,
+				25DE80D125EC05EC004D5E4E /* NewTagController.swift in Sources */,
 				25CD926D25E4608700D7876A /* RepoProtocol.swift in Sources */,
 				255BB2BD25E5E8490055862B /* Store.swift in Sources */,
 				25CD926F25E460F600D7876A /* CoreDataRepo.swift in Sources */,
 				256B8BF725E1EAF0007F992C /* ProfileFragmentController.swift in Sources */,
+				255BB2C225E98A160055862B /* TagRepo.swift in Sources */,
 				2569928A25E2BFA3002ABB7E /* ProfileStackView.swift in Sources */,
 				256B8A6925E07D9C007F992C /* NSRegularExpression.swift in Sources */,
 			);
@@ -602,6 +630,14 @@
 				minimumVersion = 5.1.2;
 			};
 		};
+		25DE80C925EADAE6004D5E4E /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/DynamicColor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -618,6 +654,11 @@
 		2569928725E2B623002ABB7E /* Dependencies */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Dependencies;
+		};
+		25DE80CA25EADAE6004D5E4E /* DynamicColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25DE80C925EADAE6004D5E4E /* XCRemoteSwiftPackageReference "DynamicColor" */;
+			productName = DynamicColor;
 		};
 /* End XCSwiftPackageProductDependency section */
 

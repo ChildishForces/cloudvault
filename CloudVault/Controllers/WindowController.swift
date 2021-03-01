@@ -23,6 +23,9 @@ class WindowController: NSWindowController {
 
   override func windowDidLoad() {
     let storyboard = NSStoryboard(name: "Main", bundle: nil)
+
+    // Initialise Popovers
+
     guard let popoverController = storyboard.instantiateController(
       withIdentifier: "popoverController"
     ) as? PopoverViewController else { return }
@@ -38,9 +41,7 @@ class WindowController: NSWindowController {
 
     guard let newTagController = storyboard.instantiateController(
       withIdentifier: "newTagController"
-    ) as? NewTagController else {
-      return
-    }
+    ) as? NewTagController else { return }
 
     self.newTagController = newTagController
     newTagPopover = NSPopover()
@@ -49,6 +50,9 @@ class WindowController: NSWindowController {
 
     newTagPopover?.behavior = .semitransient
     newTagPopover?.animates = true
+
+    // Menu Configuration
+    sortMenu?.item(at: 0)?.state = .on
   }
 
   @IBAction func openPopover(_ sender: AnyObject) {
@@ -81,20 +85,29 @@ class WindowController: NSWindowController {
     sortMenu!.popUp(positioning: nil, at: location, in: sender)
   }
 
-  @IBAction func sortByNameAscending(_ sender: NSMenuItem) {
-    print(sender)
-  }
-
-  @IBAction func sortByNameDescending(_ sender: NSMenuItem) {
-    print(sender)
-  }
-
   @IBAction func sortByDateAscending(_ sender: NSMenuItem) {
     print(sender)
+    setMenuActiveItem(0)
   }
 
   @IBAction func sortByDateDescending(_ sender: NSMenuItem) {
     print(sender)
+    setMenuActiveItem(1)
+  }
+
+  @IBAction func sortByNameAscending(_ sender: NSMenuItem) {
+    print(sender)
+    setMenuActiveItem(2)
+  }
+
+  @IBAction func sortByNameDescending(_ sender: NSMenuItem) {
+    print(sender)
+    setMenuActiveItem(3)
+  }
+
+  func setMenuActiveItem(_ index: Int) {
+    sortMenu?.items.forEach { $0.state = .off }
+    sortMenu?.item(at: index)?.state = .on
   }
 
   // Authenticate
