@@ -35,7 +35,7 @@ class ProfileFragmentController: NSViewController {
     accountIdLabel?.stringValue = profile!.accountId!
   }
 
-  override func viewDidAppear() {
+  override func viewWillAppear() {
     setProps(profile)
   }
 }

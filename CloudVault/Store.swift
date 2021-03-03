@@ -19,6 +19,13 @@ enum ProfileNameLetterCase {
   case snakeCase
 }
 
+enum ProfileOrdering {
+  case byNameAscending
+  case byNameDescending
+  case byDateAscending
+  case byDateDescending
+}
+
 func getProfileNameLetterCaseString(_ letterCase: ProfileNameLetterCase) -> String {
   switch letterCase {
   case .camelCase: return "camelCase"
@@ -51,6 +58,7 @@ struct AppState: StateType {
   var activeProfile: String?
   var location: String?
   var search: String?
+  var ordering: ProfileOrdering = .byDateDescending
 }
 
 struct SetSettings: Action {
@@ -69,14 +77,21 @@ struct SetLastLocation: Action {
   var payload: String
 }
 
+struct SetProfileOrdering: Action {
+  var payload: ProfileOrdering
+}
+
 func stateReducer(action: Action, state: AppState?) -> AppState {
   var state = state ?? AppState()
+
+  print(action)
 
   switch action {
   case let action as SetSettings: state.globalSettings = action.payload
   case let action as SetActiveProfile: state.activeProfile = action.payload
   case let action as SetSearch: state.search = action.payload
   case let action as SetLastLocation: state.location = action.payload
+  case let action as SetProfileOrdering: state.ordering = action.payload
   default: break
   }
 

@@ -8,11 +8,12 @@
 import Foundation
 import AppKit
 import LocalAuthentication
+import ReSwift
 
 /**
   Main NSWindowController class
 */
-class WindowController: NSWindowController {
+class WindowController: NSWindowController, NSWindowDelegate, StoreSubscriber {
   var popover: NSPopover?
   var newTagPopover: NSPopover?
   var popoverController: PopoverViewController?
@@ -23,9 +24,9 @@ class WindowController: NSWindowController {
 
   override func windowDidLoad() {
     let storyboard = NSStoryboard(name: "Main", bundle: nil)
+    window?.delegate = self
 
     // Initialise Popovers
-
     guard let popoverController = storyboard.instantiateController(
       withIdentifier: "popoverController"
     ) as? PopoverViewController else { return }
@@ -49,8 +50,27 @@ class WindowController: NSWindowController {
     newTagPopover?.behavior = .semitransient
     newTagPopover?.animates = true
 
+    mainStore.subscribe(self)
+  }
+
+  func windowWillClose(_ notification: Notification) {
+    mainStore.unsubscribe(self)
+  }
+
+  func newState(state: AppState) {
     // Menu Configuration
-    sortMenu?.item(at: 0)?.state = .on
+    switch state.ordering {
+    case .byDateAscending: setMenuActiveItem(0)
+    case .byDateDescending: setMenuActiveItem(1)
+    case .byNameAscending: setMenuActiveItem(2)
+    case .byNameDescending: setMenuActiveItem(3)
+    }
+  }
+
+  @IBAction func dispatchSearch(_ sender: NSTextField!) {
+    mainStore.dispatch(
+      SetSearch(payload: sender.stringValue)
+    );
   }
 
   @IBAction func openPopover(_ sender: AnyObject) {
@@ -84,23 +104,19 @@ class WindowController: NSWindowController {
   }
 
   @IBAction func sortByDateAscending(_ sender: NSMenuItem) {
-    print(sender)
-    setMenuActiveItem(0)
+    mainStore.dispatch(SetProfileOrdering(payload: .byDateAscending))
   }
 
   @IBAction func sortByDateDescending(_ sender: NSMenuItem) {
-    print(sender)
-    setMenuActiveItem(1)
+    mainStore.dispatch(SetProfileOrdering(payload: .byDateDescending))
   }
 
   @IBAction func sortByNameAscending(_ sender: NSMenuItem) {
-    print(sender)
-    setMenuActiveItem(2)
+    mainStore.dispatch(SetProfileOrdering(payload: .byNameAscending))
   }
 
   @IBAction func sortByNameDescending(_ sender: NSMenuItem) {
-    print(sender)
-    setMenuActiveItem(3)
+    mainStore.dispatch(SetProfileOrdering(payload: .byNameDescending))
   }
 
   func setMenuActiveItem(_ index: Int) {
@@ -137,13 +153,7 @@ class WindowController: NSWindowController {
         if error.errorCode == -3 {
           print("fallback password!")
         }
-
-        //                print(String(describing: authenticationError));
-        //                let alert = NSAlert();
-        //                alert.messageText = "Authentication failed!"
-        //                alert.informativeText = "We are sorry but we cannot allow you access to the vault!"
-        //                alert.addButton(withTitle: "Okay")
-        //                alert.runModal()
+        // Other failure somewhere
       }
     }
   }

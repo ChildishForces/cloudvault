@@ -764,6 +764,9 @@
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
+                                        <connections>
+                                            <action selector="dispatchSearch:" target="B8D-0N-5wS" id="Mn9-my-vid"/>
+                                        </connections>
                                     </searchField>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="B451E931-48E2-4C42-B0E4-C6C48E845701" label="New Tag" paletteLabel="New Tag" image="tag.fill" catalog="system" sizingBehavior="auto" id="Ljr-gK-6jV">

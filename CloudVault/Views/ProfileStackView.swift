@@ -36,6 +36,6 @@ class ProfileStackView: NSStackView {
 
     partial.view.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
     partial.view.rightAnchor.constraint(equalTo: rightAnchor, constant: 15).isActive = true
-    updateConstraintsForSubtreeIfNeeded()
+    //    updateConstraintsForSubtreeIfNeeded()
   }
 }
