@@ -23,10 +23,34 @@ class WindowController: NSWindowController, NSWindowDelegate, StoreSubscriber {
   @IBOutlet var sortMenu: NSMenu?
 
   override func windowDidLoad() {
-    let storyboard = NSStoryboard(name: "Main", bundle: nil)
     window?.delegate = self
 
-    // Initialise Popovers
+    mainStore.subscribe(self)
+  }
+
+  func windowDidBecomeKey(_ notification: Notification) {
+    createTagPopover()
+    createProfilePopover()
+  }
+
+  func windowDidResignKey(_ notification: Notification) {
+    popover = nil
+    newTagPopover = nil
+    popoverController = nil
+    sidebarController = nil
+    newTagController = nil
+  }
+
+  func windowWillClose(_ notification: Notification) {
+    mainStore.unsubscribe(self)
+    popover?.close()
+    newTagPopover?.close()
+  }
+
+  func createProfilePopover() {
+    guard popover == nil else { return }
+
+    let storyboard = NSStoryboard(name: "Main", bundle: nil)
     guard let popoverController = storyboard.instantiateController(
       withIdentifier: "popoverController"
     ) as? PopoverViewController else { return }
@@ -37,8 +61,12 @@ class WindowController: NSWindowController, NSWindowDelegate, StoreSubscriber {
     popover?.contentSize = popoverController.view.frame.size
     popover?.behavior = .semitransient
     popover?.animates = true
+  }
 
+  func createTagPopover() {
+    guard newTagPopover == nil else { return }
 
+    let storyboard = NSStoryboard(name: "Main", bundle: nil)
     guard let newTagController = storyboard.instantiateController(
       withIdentifier: "newTagController"
     ) as? NewTagController else { return }
@@ -49,12 +77,6 @@ class WindowController: NSWindowController, NSWindowDelegate, StoreSubscriber {
     newTagPopover?.contentSize = newTagController.view.frame.size
     newTagPopover?.behavior = .semitransient
     newTagPopover?.animates = true
-
-    mainStore.subscribe(self)
-  }
-
-  func windowWillClose(_ notification: Notification) {
-    mainStore.unsubscribe(self)
   }
 
   func newState(state: AppState) {
@@ -67,26 +89,26 @@ class WindowController: NSWindowController, NSWindowDelegate, StoreSubscriber {
     }
   }
 
-  @IBAction func dispatchSearch(_ sender: NSTextField!) {
+  @IBAction func dispatchSearch(_ sender: NSTextField) {
     mainStore.dispatch(
       SetSearch(payload: sender.stringValue)
-    );
+    )
   }
 
-  @IBAction func openPopover(_ sender: AnyObject) {
+  @IBAction func openPopover(_ sender: NSButton) {
     if popover == nil { return }
     popover!.isShown
       ? closePopover(sender)
       // swiftlint:disable:next force_cast
-      : popover!.show(relativeTo: sender.bounds, of: sender as! NSView, preferredEdge: .maxX)
+      : popover!.show(relativeTo: sender.bounds, of: sender, preferredEdge: .maxX)
   }
 
-  @IBAction func openNewTagPopover(_ sender: AnyObject) {
-    if newTagPopover == nil { return }
+  @IBAction func openNewTagPopover(_ sender: NSButton) {
+    guard newTagPopover != nil else { return }
     newTagPopover!.isShown
       ? closeNewTagPopover(sender)
       // swiftlint:disable:next force_cast
-      : newTagPopover!.show(relativeTo: sender.bounds, of: sender as! NSView, preferredEdge: .maxY)
+      : newTagPopover!.show(relativeTo: sender.bounds, of: sender, preferredEdge: .maxY)
   }
 
   func closePopover(_ sender: AnyObject) {

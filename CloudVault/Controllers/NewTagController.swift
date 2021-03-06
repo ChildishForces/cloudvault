@@ -16,6 +16,7 @@ class NewTagController: NSViewController {
   var colorPicker: NSColorPanel?
   var color: DynamicColor? {
     didSet {
+      if color == nil { return }
       indicator?.color = color!
       colorPicker?.color = color!
     }
@@ -39,9 +40,15 @@ class NewTagController: NSViewController {
   }
 
   override func viewWillDisappear() {
-    colorPicker?.setTarget(nil)
-    colorPicker?.isContinuous = false
+    print("View will disappear: NewTagController")
     colorPicker?.close()
+    colorPicker?.setTarget(nil)
+    colorPicker?.accessoryView = nil
+    colorPicker = nil
+  }
+
+  override func viewDidDisappear() {
+    color = nil
   }
 
   @objc func changeColor(_ panel: NSColorPanel) {
@@ -49,6 +56,7 @@ class NewTagController: NSViewController {
   }
 
   @IBAction func displayColorPanel(_ sender: AnyObject) {
+    print("SENDER: \(sender)")
     colorPicker?.setAction(#selector(changeColor(_:)))
     colorPicker?.setTarget(self)
     colorPicker?.makeKeyAndOrderFront(self)

@@ -1224,11 +1224,11 @@
             <objects>
                 <viewController storyboardIdentifier="newTagController" id="9rE-pz-tMw" customClass="NewTagController" customModule="CloudVault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="N80-pV-aK6">
-                        <rect key="frame" x="0.0" y="0.0" width="276" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="276" height="40"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GkC-v6-yzf">
-                                <rect key="frame" x="10" y="16" width="157" height="18"/>
+                                <rect key="frame" x="10" y="11" width="159" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="tlS-CQ-pYW"/>
                                 </constraints>
@@ -1239,7 +1239,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RFz-3C-vKy">
-                                <rect key="frame" x="196" y="8" width="75" height="32"/>
+                                <rect key="frame" x="196" y="3" width="75" height="32"/>
                                 <buttonCell key="cell" type="push" title="Create" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5yV-hu-BDa">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1249,10 +1249,10 @@
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="LC7-Z9-ckM" customClass="ColorIndicatorButton" customModule="CloudVault" customModuleProvider="target">
-                                <rect key="frame" x="177" y="18" width="14" height="14"/>
+                                <rect key="frame" x="179" y="14" width="12" height="12"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="9oC-zd-aph"/>
-                                    <constraint firstAttribute="height" constant="14" id="suD-Wc-hAY"/>
+                                    <constraint firstAttribute="width" constant="12" id="9oC-zd-aph"/>
+                                    <constraint firstAttribute="height" constant="12" id="suD-Wc-hAY"/>
                                 </constraints>
                                 <gestureRecognizers>
                                     <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="A6U-NJ-yLH">
@@ -1281,7 +1281,7 @@
                 </viewController>
                 <customObject id="TUm-VL-BHI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1159" y="1048"/>
+            <point key="canvasLocation" x="1159" y="1043"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Nk1-dO-DEQ">

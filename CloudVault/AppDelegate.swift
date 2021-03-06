@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Insert code here to initialize your application
     print(self.persistentContainer.persistentStoreCoordinator.persistentStores)
+    performFirstLaunchCheck()
     appIsActive.asObservable().bind(onNext: { print("App is \($0 ? "" : "in")active") }).disposed(by: mainDisposeBag)
   }
 
@@ -24,9 +25,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // Insert code here to tear down your application
   }
 
-  func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-    if !flag { for window in sender.windows { window.makeKeyAndOrderFront(self) } }
+  func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows windowsVisible: Bool) -> Bool {
+    if !windowsVisible {
+      for window in sender.windows where window as? NSColorPanel == nil {
+        window.makeKeyAndOrderFront(self)
+      }
+    }
     return true
+  }
+
+  func performFirstLaunchCheck() {
+    print(KeychainUtility.shared.createOrRetrievePrivateKey())
   }
 
   // To implement: for when file is dropped on dock icon
