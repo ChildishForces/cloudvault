@@ -70,7 +70,7 @@ class NewTagController: NSViewController {
       _ = try DataManager.shared.tags.create(
         TagSchema(name: textField!.stringValue, color: (color?.toHexString())!)
       )
-
+      createButton?.isEnabled = false
       for window in NSApplication.shared.windows {
         guard let windowController = window.windowController as? WindowController else { return }
         windowController.closeNewTagPopover(self)

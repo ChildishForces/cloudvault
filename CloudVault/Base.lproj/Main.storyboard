@@ -698,7 +698,7 @@
                                 <toolbarItem implicitItemIdentifier="7854DC6E-F74E-4EAA-82E7-688608BD3BBB" label="Add New Profile" paletteLabel="Add New Profile" image="person.crop.circle.badge.plus" catalog="system" sizingBehavior="auto" id="JU4-OS-v4b">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ESf-ki-he1">
-                                        <rect key="frame" x="34" y="14" width="24" height="19"/>
+                                        <rect key="frame" x="0.0" y="-1" width="30" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="0gf-qM-xZf"/>
                                             <constraint firstAttribute="height" constant="30" id="NOW-KQ-c53"/>
@@ -1048,10 +1048,10 @@
             </objects>
             <point key="canvasLocation" x="-374" y="737"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="F0r-CD-0K9">
             <objects>
-                <viewController id="MUc-4o-4XE" sceneMemberID="viewController">
+                <viewController id="MUc-4o-4XE" customClass="NavigationController" customModule="CloudVault" customModuleProvider="target" sceneMemberID="viewController">
                     <containerView key="view" id="PYK-fg-sGa">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
