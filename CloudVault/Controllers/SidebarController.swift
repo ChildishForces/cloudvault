@@ -282,32 +282,25 @@ extension SidebarController: NSOutlineViewDelegate {
   }
 
   func outlineViewSelectionDidChange(_ notification: Notification) {
-    guard let outlineView = notification.object as? NSOutlineView else {
-      return
-    }
+    guard let outlineView = notification.object as? NSOutlineView else { return }
     guard let delegate: AppDelegate = NSApplication.shared.delegate as? AppDelegate else { return }
     let selectedIndex = outlineView.selectedRow
 
     if let item = outlineView.item(atRow: selectedIndex) as? NavigationMenuItem {
       if mainWindowController != nil {
-        print(delegate)
-        print(item)
         switch item.slug {
-          case .profileIndex: delegate.navigator?.navigateToProfiles()
-          case .settings: delegate.navigator?.navigateToSettings()
-          default: delegate.navigator?.navigateToProfiles()
+        case .profileIndex: delegate.navigator?.navigateToProfiles()
+        case .settings: delegate.navigator?.navigateToSettings()
+        default: delegate.navigator?.navigateToProfiles()
         }
       }
     } else if let profileItem = outlineView.item(atRow: selectedIndex) as? ProfileMenuItem {
       if self.mainWindowController != nil {
-        //                delegate.navigator?.switchView("profileSingle")
         mainStore.dispatch(SetActiveProfile(payload: profileItem.id))
         delegate.navigator?.navigateToProfile(id: UUID(uuidString: profileItem.id)!)
       }
     } else if let tagItem = outlineView.item(atRow: selectedIndex) as? TagMenuItem {
       if self.mainWindowController != nil {
-        //                delegate.navigator?.switchView("profileSingle")
-//        mainStore.dispatch(SetActiveProfile(payload: profileItem.id))
         delegate.navigator?.navigateToProfiles(tag: UUID(uuidString: tagItem.id)!)
       }
     } else if outlineView.item(atRow: selectedIndex) as? MenuSegment != nil {
