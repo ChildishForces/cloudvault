@@ -1054,15 +1054,15 @@
                 <viewController id="MUc-4o-4XE" customClass="NavigationController" customModule="CloudVault" customModuleProvider="target" sceneMemberID="viewController">
                     <containerView key="view" id="PYK-fg-sGa">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <segue destination="cjH-Q6-eF7" kind="embed" id="VFo-gj-etr"/>
-                        </connections>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </containerView>
+                    <connections>
+                        <outlet property="containerView" destination="PYK-fg-sGa" id="EbK-ML-KVS"/>
+                    </connections>
                 </viewController>
                 <customObject id="2TN-AE-yaA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621.5" y="737"/>
+            <point key="canvasLocation" x="621" y="737"/>
         </scene>
         <!--Popover View Controller-->
         <scene sceneID="fiD-LS-EQB">
@@ -1217,7 +1217,7 @@
                 </viewController>
                 <customObject id="L5O-yO-Vuq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855" y="1129"/>
+            <point key="canvasLocation" x="552" y="126"/>
         </scene>
         <!--New Tag Controller-->
         <scene sceneID="5ic-ko-jEI">
@@ -1281,15 +1281,69 @@
                 </viewController>
                 <customObject id="TUm-VL-BHI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1159" y="1043"/>
+            <point key="canvasLocation" x="844" y="40"/>
+        </scene>
+        <!--Profile Single Controller-->
+        <scene sceneID="Wde-UV-9oN">
+            <objects>
+                <viewController title="Profile Single Controller" storyboardIdentifier="profileSingleViewController" id="skh-Tm-v74" customClass="ProfileSingleViewController" customModule="CloudVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Bwx-PG-M6V">
+                        <rect key="frame" x="0.0" y="0.0" width="508" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uDn-F8-cOn">
+                                <rect key="frame" x="196" y="142" width="117" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Profile Single View" id="hUd-TK-Wk3">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="uDn-F8-cOn" firstAttribute="centerX" secondItem="Bwx-PG-M6V" secondAttribute="centerX" id="dQH-vq-PN8"/>
+                            <constraint firstItem="uDn-F8-cOn" firstAttribute="centerY" secondItem="Bwx-PG-M6V" secondAttribute="centerY" id="pbo-wv-WEd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="2U1-B8-h71" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971" y="1173"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="QNg-2j-8dJ">
+            <objects>
+                <viewController title="Settings View Controller" storyboardIdentifier="settingsViewController" id="JH9-GA-ooW" customClass="SettingsViewController" customModule="CloudVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gEn-6O-eXG">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EAk-ze-79G">
+                                <rect key="frame" x="207" y="142" width="87" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Settings View" id="wRH-fU-W1v">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="EAk-ze-79G" firstAttribute="centerY" secondItem="gEn-6O-eXG" secondAttribute="centerY" id="boU-Tg-tPT"/>
+                            <constraint firstItem="EAk-ze-79G" firstAttribute="centerX" secondItem="gEn-6O-eXG" secondAttribute="centerX" id="ssb-gg-Bjx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="MB7-Gw-owg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="1173"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Nk1-dO-DEQ">
             <objects>
-                <viewController id="cjH-Q6-eF7" customClass="ProfileViewController" customModule="CloudVault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileViewController" id="cjH-Q6-eF7" customClass="ProfileViewController" customModule="CloudVault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="h3q-Ip-jiq">
                         <rect key="frame" x="0.0" y="0.0" width="520" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAf-r4-lMQ">
                                 <rect key="frame" x="0.0" y="0.0" width="520" height="300"/>

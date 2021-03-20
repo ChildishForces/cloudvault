@@ -42,15 +42,15 @@ class ProfileMenuItem {
 class NavigationMenuItem {
   let name: String
   let icon: NSImage?
-  let slug: String
+  let slug: ViewKey
 
-  init (_ name: String, slug: String) {
+  init (_ name: String, slug: ViewKey) {
     self.name = name
     self.slug = slug
     self.icon = nil
   }
 
-  init (_ name: String, slug: String, icon: NSImage) {
+  init (_ name: String, slug: ViewKey, icon: NSImage) {
     self.name = name
     self.slug = slug
     self.icon = icon

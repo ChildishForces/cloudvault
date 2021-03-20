@@ -11,6 +11,7 @@ import RxCocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
+  var navigator: NavigationController?
   let mainDisposeBag = DisposeBag.init()
   let appIsActive = BehaviorRelay<Bool>(value: false)
 
