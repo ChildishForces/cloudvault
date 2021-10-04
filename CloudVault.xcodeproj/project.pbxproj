@@ -19,6 +19,9 @@
 		256B8A6925E07D9C007F992C /* NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256B8A6825E07D9C007F992C /* NSRegularExpression.swift */; };
 		256B8BF725E1EAF0007F992C /* ProfileFragmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256B8BF625E1EAF0007F992C /* ProfileFragmentController.swift */; };
 		256B8BFC25E20050007F992C /* FlippedClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256B8BFB25E20050007F992C /* FlippedClipView.swift */; };
+		257D552725F493A000F91DAA /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D552625F493A000F91DAA /* NavigationController.swift */; };
+		259C479726064B9300E5C5E9 /* ProfileSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C479626064B9300E5C5E9 /* ProfileSingleViewController.swift */; };
+		259C479926064BB900E5C5E9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C479826064BB900E5C5E9 /* SettingsViewController.swift */; };
 		25A57DE925DF0B17005E3D2B /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A57DE825DF0B17005E3D2B /* WindowController.swift */; };
 		25A57DEF25DF13AD005E3D2B /* NSBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A57DEE25DF13AD005E3D2B /* NSBezierPath.swift */; };
 		25A57DF825E061DF005E3D2B /* AwsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A57DF725E061DF005E3D2B /* AwsUtility.swift */; };
@@ -41,6 +44,7 @@
 		25DE80CD25EAE852004D5E4E /* ColorPalettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80CC25EAE852004D5E4E /* ColorPalettes.swift */; };
 		25DE80D125EC05EC004D5E4E /* NewTagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80D025EC05EC004D5E4E /* NewTagController.swift */; };
 		25DE80D325EC2930004D5E4E /* ColorIndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80D225EC2930004D5E4E /* ColorIndicatorButton.swift */; };
+		25DE80D525EF0E2D004D5E4E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DE80D425EF0E2D004D5E4E /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +71,9 @@
 		256B8A6825E07D9C007F992C /* NSRegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpression.swift; sourceTree = "<group>"; };
 		256B8BF625E1EAF0007F992C /* ProfileFragmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFragmentController.swift; sourceTree = "<group>"; };
 		256B8BFB25E20050007F992C /* FlippedClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedClipView.swift; sourceTree = "<group>"; };
+		257D552625F493A000F91DAA /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		259C479626064B9300E5C5E9 /* ProfileSingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSingleViewController.swift; sourceTree = "<group>"; };
+		259C479826064BB900E5C5E9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		25A57DE825DF0B17005E3D2B /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		25A57DEE25DF13AD005E3D2B /* NSBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSBezierPath.swift; sourceTree = "<group>"; };
 		25A57DF725E061DF005E3D2B /* AwsUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsUtility.swift; sourceTree = "<group>"; };
@@ -95,6 +102,7 @@
 		25DE80CC25EAE852004D5E4E /* ColorPalettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalettes.swift; sourceTree = "<group>"; };
 		25DE80D025EC05EC004D5E4E /* NewTagController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagController.swift; sourceTree = "<group>"; };
 		25DE80D225EC2930004D5E4E /* ColorIndicatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorIndicatorButton.swift; sourceTree = "<group>"; };
+		25DE80D425EF0E2D004D5E4E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 			children = (
 				25A57DEE25DF13AD005E3D2B /* NSBezierPath.swift */,
 				256B8A6825E07D9C007F992C /* NSRegularExpression.swift */,
+				25DE80D425EF0E2D004D5E4E /* String.swift */,
 			);
 			path = CoreExtensions;
 			sourceTree = "<group>";
@@ -205,6 +214,9 @@
 				256B8BF625E1EAF0007F992C /* ProfileFragmentController.swift */,
 				255BB2BA25E5E8080055862B /* SidebarController.swift */,
 				25DE80D025EC05EC004D5E4E /* NewTagController.swift */,
+				257D552625F493A000F91DAA /* NavigationController.swift */,
+				259C479626064B9300E5C5E9 /* ProfileSingleViewController.swift */,
+				259C479826064BB900E5C5E9 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -358,15 +370,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25DE80D525EF0E2D004D5E4E /* String.swift in Sources */,
 				25CD926A25E4602E00D7876A /* DataManager.swift in Sources */,
 				25DE80D325EC2930004D5E4E /* ColorIndicatorButton.swift in Sources */,
 				25A57DF825E061DF005E3D2B /* AwsUtility.swift in Sources */,
 				25BFD5CB25B8951100BA5D7D /* CloudVault.xcdatamodeld in Sources */,
 				25A57DEF25DF13AD005E3D2B /* NSBezierPath.swift in Sources */,
 				25BFD64325BDD56D00BA5D7D /* ProfilesViewController.swift in Sources */,
+				259C479926064BB900E5C5E9 /* SettingsViewController.swift in Sources */,
+				257D552725F493A000F91DAA /* NavigationController.swift in Sources */,
 				25BFD5FD25B8AB1000BA5D7D /* SourceListInterfaces.swift in Sources */,
 				25A57DE925DF0B17005E3D2B /* WindowController.swift in Sources */,
 				25BFD64825BDDC3800BA5D7D /* PopoverViewController.swift in Sources */,
+				259C479726064B9300E5C5E9 /* ProfileSingleViewController.swift in Sources */,
 				255BB2BF25E5EC9A0055862B /* CustomTableRowView.swift in Sources */,
 				25DE80C625E9BDD8004D5E4E /* TagTableCell.swift in Sources */,
 				256B8BFC25E20050007F992C /* FlippedClipView.swift in Sources */,
@@ -536,7 +552,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jaystack.CloudVault;
+				PRODUCT_BUNDLE_IDENTIFIER = com.childishforces.CloudVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -560,7 +576,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jaystack.CloudVault;
+				PRODUCT_BUNDLE_IDENTIFIER = com.childishforces.CloudVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
